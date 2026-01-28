@@ -1,5 +1,6 @@
 export const projects = [
   {
+    id: 'p1',
     title: "Core Banking System",
     description: "A comprehensive Core Banking System for managing essential banking functions and services.",
     technologies: ["Java", "JavaServer Faces (JSF)", "PrimeFaces", "MSSQL"],
@@ -9,15 +10,17 @@ export const projects = [
     category: "Java",
   },
   {
+    id: 'p2',
     title: "Mobile Banking App",
     description: "A mobile banking application for convenient and secure access to banking services on smartphones.",
     technologies: ["Flutter", "Java", "Azure Functions", "MSSQL"],
     github: "",
     live: "",
-    image: "https://placehold.co/600x400/EEE/31343C?text=Mobile+Banking",
+    image: "https://placehold.co/600x400/EEE/31343C?text=Mobile+Banking+App",
     category: "Flutter",
   },
   {
+    id: 'p3',
     title: "Mobile Banking Admin Console",
     description: "An admin console for managing and monitoring the mobile banking application.",
     technologies: ["Angular", "Bootstrap", "Java", "Azure Functions", "MSSQL"],
@@ -27,24 +30,27 @@ export const projects = [
     category: "Angular",
   },
   {
+    id: 'p4',
     title: "Mobile Wallet App",
     description: "A safe and easy-to-use digital wallet app for Android phones.",
     technologies: ["Flutter", "Node.js", "Express", "PostgreSQL"],
     github: "",
     live: "",
-    image: "https://placehold.co/600x400/EEE/31343C?text=Mobile+Wallet",
+    image: "https://placehold.co/600x400/EEE/31343C?text=Mobile+Wallet+App",
     category: "Flutter",
   },
   {
+    id: 'p5',
     title: "FIGateway",
     description: "An interbank transaction service to facilitate seamless fund transfers between accounts held at different banks.",
-    technologies: ["Java", "JAX-RS"],
+    technologies: ["Java", "JAX-RS","Angular", "MSSQL"],
     github: "",
     live: "",
     image: "https://placehold.co/600x400/EEE/31343C?text=FIGateway",
     category: "Java",
   },
   {
+    id: 'p6',
     title: "Agency Banking",
     description: "A platform that enables local agents to provide banking services such as deposits, withdrawals, and bill payments.",
     technologies: ["Java", "Spring Boot", "Angular", "Oracle"],
@@ -54,6 +60,7 @@ export const projects = [
     category: "Java",
   },
   {
+    id: 'p7',
     title: "POS System for Restaurant",
     description: "A user-friendly POS system customized for restaurants.",
     technologies: ["Rust", "React", "PostgreSQL"],
@@ -63,12 +70,13 @@ export const projects = [
     category: "React",
   },
   {
+    id: 'p8',
     title: "E-commerce Website",
     description: "A full-featured eCommerce web application.",
     technologies: ["React", "Next.js", "Angular", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/thantzinlin/ecommerce_backend.git",
     live: "",
-    image: "https://placehold.co/600x400/EEE/31343C?text=E-commerce",
+    image: "https://placehold.co/600x400/EEE/31343C?text=E-commerce+Website",
     category: "React",
   },
 ];

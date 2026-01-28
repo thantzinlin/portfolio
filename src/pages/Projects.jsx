@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import ProjectCard from '../components/ProjectCard';
 
 const Projects = () => {
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState('all'); // Initialize with normalized 'all'
 
-  const technologies = ['All', ...new Set(projects.map((p) => p.category))];
+  const technologies = ['all', ...new Set(projects.flatMap((p) => p.technologies).map(tech => tech.toLowerCase().trim()))];
 
-  const filteredProjects =
-    filter === 'All' ? projects : projects.filter((p) => p.category === filter);
+  const filteredProjects = useMemo(() => {
+    if (filter === 'all') {
+      return projects;
+    }
+    const normalizedFilter = filter.toLowerCase().trim();
+    return projects.filter((p) => p.technologies.map(tech => tech.toLowerCase().trim()).includes(normalizedFilter));
+  }, [filter, projects]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -40,31 +45,39 @@ const Projects = () => {
         </motion.div>
 
         <div className="flex justify-center flex-wrap gap-4 mb-8">
-          {technologies.map((tech) => (
+          {technologies.map((tech, index) => (
             <button
-              key={tech}
-              onClick={() => setFilter(tech)}
+              key={`${tech}-${index}`}
+              onClick={() => setFilter(tech)} // 'tech' is already normalized here
+              aria-pressed={filter === tech}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
                 filter === tech
                   ? 'bg-gray-900 text-white dark:bg-gray-700'
                   : 'bg-white text-gray-900 dark:bg-gray-800 dark:text-white'
               }`}
             >
-              {tech}
+              {tech === 'all' ? 'All' : tech} {/* Display 'All' for the button */}
             </button>
           ))}
         </div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
-        </motion.div>
+        {filteredProjects.length > 0 ? (
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {filteredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        ) : (
+          <motion.p
+            className="text-center text-xl text-gray-600 dark:text-gray-400 mt-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            No projects found for the selected filter.
+          </motion.p>
+        )}
       </div>
     </motion.div>
   );
