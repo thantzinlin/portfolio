@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { skills, experiences, education } from '../data/info';
 import { FaBriefcase, FaGraduationCap, FaCode, FaDatabase, FaTools } from 'react-icons/fa';
+import profileImg from "../assets/profile.jpg";
 
 const About = () => {
   const sectionVariants = {
@@ -53,7 +54,7 @@ const About = () => {
           <p className="text-lg text-gray-600 dark:text-gray-400 mt-4">A brief introduction about my journey and skills.</p>
           <motion.div variants={itemVariants} className="mt-8">
             <img
-              src="/src/assets/Thant Zin Lin.jpg"
+              src={profileImg}
               alt="Thant Zin Lin"
               className="w-40 h-40 rounded-full mx-auto object-cover border-4 border-gray-300 dark:border-gray-700 shadow-lg"
             />

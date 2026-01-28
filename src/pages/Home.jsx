@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { personalDetails } from '../data/info';
 import { FaArrowRight } from 'react-icons/fa';
+import profileImg from "../assets/profile.jpg";
+
 
 const Home = () => {
   const containerVariants = {
@@ -40,7 +42,7 @@ const Home = () => {
       >
         <motion.div variants={itemVariants} className="mb-8">
           <img
-            src="/src/assets/Thant Zin Lin.jpg"
+            src={profileImg}
             alt={personalDetails.name}
             className="w-40 h-40 rounded-full mx-auto object-cover border-4 border-gray-300 dark:border-gray-700 shadow-lg"
           />
