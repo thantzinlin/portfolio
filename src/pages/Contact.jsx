@@ -34,8 +34,7 @@ const Contact = () => {
     e.preventDefault();
     if (validate()) {
       // Handle form submission (e.g., send email)
-      console.log('Form submitted:', formData);
-      alert('Message sent successfully!');
+      alert('Currently, form submission is not implemented.Please contact me via email directly.');
       setFormData({ name: '', email: '', message: '' });
     }
   };
